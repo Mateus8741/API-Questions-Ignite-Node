@@ -12,9 +12,16 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:cov": "vitest run --coverage",
+    "test:debug": "vitest --inspect-brk --inspect --logHeapUsage --threads=false",
+    "test:e2e": "vitest run --config ./vitest.config.e2e.ts",
+    "test:e2e:watch": "vitest --config ./vitest.config.e2e.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.417.0",
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^3.1.1",
     "@nestjs/core": "^10.0.0",
@@ -27,7 +34,9 @@
     "passport-jwt": "^4.0.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
-    "zod": "^3.22.2"
+    "zod": "^3.22.2",
+    "ioredis": "^5.3.2",
+    "zod-validation-error": "^1.5.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.1.0",
@@ -37,13 +46,21 @@
     "@rocketseat/eslint-config": "^2.1.0",
     "@types/bcryptjs": "^2.4.4",
     "@types/express": "^4.17.17",
+    "@types/multer": "^1.4.7",
     "@types/node": "^20.3.1",
     "@types/passport-jwt": "^3.0.10",
+    "@types/supertest": "^2.0.12",
+    "@vitest/coverage-v8": "^0.34.2",
+    "dotenv": "^16.3.1",
     "eslint": "^8.50.0",
     "prisma": "^5.3.1",
     "source-map-support": "^0.5.21",
+    "supertest": "^6.3.3",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.1.3"
+    "typescript": "^5.1.3",
+    "unplugin-swc": "^1.3.2",
+    "vite-tsconfig-paths": "^4.2.0",
+    "vitest": "^0.34.2"
   }
 }
